@@ -9,6 +9,8 @@ public class testGrid : MonoBehaviour {
 	private int SpawnTestTNT;
 	private int DontSpawn;
 
+	public static bool GameBegin = false;
+
 	void Start () {
 
 		for (float x = -12f; x < 12f; x++) {
@@ -30,6 +32,10 @@ public class testGrid : MonoBehaviour {
 	}
 
 	void Update () {
+
+		if (Input.touchCount > 0 || Input.GetKey("up")) {
+			GameBegin = true;
+		}
 		
 		if (CanCreate) {
 
@@ -40,7 +46,7 @@ public class testGrid : MonoBehaviour {
 					SpawnTestTNT = Random.Range (1, 21);
 					SpawnTestMoney = Random.Range (1, 101);
 
-					if (SpawnTestMoney == 10) {
+					if (SpawnTestMoney == 10 && GameBegin == true) {
 						GameObject obj = ObjectPooler.current.GetPooledObjectMoney ();
 						if (obj == null) {
 							return;
@@ -55,7 +61,7 @@ public class testGrid : MonoBehaviour {
 						obj.SetActive (true);
 					}
 
-					else if (SpawnTestTNT == 10) {
+					else if (SpawnTestTNT == 10 && GameBegin == true) {
 						GameObject obj = ObjectPooler.current.GetPooledObjectObstacle ();
 						if (obj == null) {
 							return;

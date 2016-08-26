@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollider : MonoBehaviour {
 
-	public static AsyncOperation GameOVer;
+	public static AsyncOperation GameOver;
 
 	public static float Speed = 8f;
 
@@ -31,7 +31,7 @@ public class PlayerCollider : MonoBehaviour {
 		}
 		else if (col.gameObject.tag == "TNT") {
 			col.gameObject.SetActive (false);
-			//GameOVer = SceneManager.LoadSceneAsync (1, LoadSceneMode.Single);
+			GameOver = SceneManager.LoadSceneAsync (1, LoadSceneMode.Single);
 		}
 	}
 

@@ -28,4 +28,12 @@ public class Buttons : MonoBehaviour {
 	public void Recommencer(){
 		NewGame = SceneManager.LoadSceneAsync (0, LoadSceneMode.Single);
 	}
+
+	public void PlayGame(){
+		NewGame = SceneManager.LoadSceneAsync (0, LoadSceneMode.Single);
+	}
+
+	public void QuitApp(){
+		Application.Quit ();
+	}
 }

@@ -16,9 +16,12 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!Buttons.pause) {
+		if (!Buttons.pause && testGrid.GameBegin == true) {
 			score = score + 0.1f;
 			text.text = Mathf.Round (score) + " m";
-		}
+		} else if (Buttons.pause && score > 0) {
+			text.text = Mathf.Round (score) + " m";
+		} else
+			text.text = "0 m";
 	}
 }
